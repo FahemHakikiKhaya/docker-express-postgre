@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: fahem123
+      POSTGRES_USER: root
+      POSTGRES_DB: testing
+  app:
+    image: express-postgre-docker
+    ports:
+      - 8080:8001
+    depends_on:
+      - db
